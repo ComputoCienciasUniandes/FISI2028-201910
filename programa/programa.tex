@@ -1,0 +1,510 @@
+\documentclass[letterpaper,10pt,onecolumn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{enumitem}
+\usepackage[pdftex]{color,graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{calligra}
+\usepackage{url}
+%\usepackage{algpseudocode} 
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\lstloadlanguages{[5.2]Mathematica}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{490pt}
+\setlength{\topmargin}{-40pt}
+\addtolength{\hoffset}{-0.3cm}
+\addtolength{\textheight}{4cm}
+
+\begin{document}
+\begin{center}
+
+\includegraphics[width=490pt]{header.png}\\[0.5cm]
+
+\textsc{\LARGE M\'etodos Computacionales}\\[0.1cm]
+%\large Jaime E. Forero Romero\\[0.5cm]
+
+\end{center}
+
+\large \noindent\textsc{Nombre del curso:}  M\'etodos Computacionales%Aqui  
+                                %nombre del curso 
+  
+\noindent\textsc{C\'odigo del curso:} FISI 2028 (Magistral) FISI 2029 (Laboratorio) %Aqui el codigo del
+                                %curso 
+
+\noindent\textsc{Unidad acad\'emica:} Departamento de F\'isica
+
+\noindent\textsc{Periodo acad\'emico:} 201910 %Aqui el periodo,
+                                %p.ej. 201510 
+
+\noindent\textsc{Horario (magistral - Secci\'on 1):} Ma y Ju, 6:30 a 7:50.
+
+\noindent\textsc{Horario (magistral - Secci\'on 2):} Ma y Vie, 17:00 a 18:20.
+%Aqui el horario, %p.ej. Ma y Ju, 10:00 a 11:20 
+
+\noindent\textsc{Horario (laboratorio - Secci\'on 1):} Ma 15:30 - 16:50
+
+\noindent\textsc{Horario (laboratorio - Secci\'on 2):} Mie 14:00 - 15:20
+
+\noindent\rule{\textwidth}{1pt}\\[-0.3cm]
+
+\normalsize \noindent\textsc{Nombre profesor magistral (Secci\'on 1):}
+Jaime E. Forero Romero%Aqui nombre del profesor principal   
+
+\noindent\textsc{Correo electr\'onico:}
+\href{mailto:je.forero@uniandes.edu.co}{\nolinkurl{je.forero@uniandes.edu.co}}
+%Cambie address por su direccion de correo uniandes 
+
+\noindent\textsc{Horario y lugar de atenci\'on:} Ma y , 15:00 a 17:00, Oficina Ip208 
+\\[-0.1cm]
+
+\normalsize \noindent\textsc{Nombre profesor magistral (Secci\'on 2):}
+Veronica Arias Callejas %Aqui nombre del profesor principal 
+
+\noindent\textsc{Correo electr\'onico:}
+\href{mailto:v.arias@uniandes.edu.co}{\nolinkurl{v.arias@uniandes.edu.co}}
+%Cambie address por su direccion de correo uniandes 
+
+\noindent\textsc{Horario de atenci\'on:} con cita previa. 
+\\[-0.1cm]
+
+\noindent\textsc{Nombre profesor(a) complementario(a):} 
+%Jesus David Prada Gonzalez
+%Aqui nombre
+                                %del profesor complementario si aplica 
+
+\noindent\textsc{Correo electr\'onico:}
+%\href{mailto: jd.prada1760@uniandes.edu.co}{\nolinkurl{jd.prada1760@uniandes.edu.co}}
+
+%Cambie address por direccion de correo uniandes del profesor
+%complementario 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del profesor complementario, p.ej. Vi, 15:00 a
+%17:00, Oficina Ip102 
+%\\[-0.1cm]
+%Repetir esto en caso de varios profesores complementarios
+
+%\noindent\textsc{Nombre monitor(a):} %Aqui nombre del monitor si aplica
+
+%\noindent\textsc{Correo electr\'onico:}
+%\href{mailto:address@uniandes.edu.co}{\nolinkurl{address@uniandes.edu.co}}
+%%Cambie address por direccion de correo uniandes del monitor 
+
+%\noindent\textsc{Horario y lugar de atenci\'on:} %Aqui horario y
+%lugar de atencion del monitor, p.ej. Vi, 15:00 a 17:00, Oficina Ip102 
+
+\noindent\rule{\textwidth}{1pt}\\[-0.1cm]
+
+\newcounter{mysection}
+\addtocounter{mysection}{1}
+
+\noindent\textbf{\large \Roman{mysection} \quad Introducci\'on}\\[-0.2cm]
+
+%Este espacio es para hacer una introduccion al curso, evidenciando la
+%propuesta metodologica. Debe ser clara y precisa. 
+
+\noindent\normalsize Los m\'etodos computacionales son un aspecto
+inseparable de cualquier \'area de trabajo en ciencia e ingenier\'ia.
+Esto se debe a la facilidad de acceso a 
+computadoras programables  y al aumento exponencial en su capacidad de
+procesamiento. 
+Este curso busca guiar a los estudiantes en el desarrollo de sus
+\emph{habilidades computacionales} en generar y procesar
+datos para obtener informaci\'on sobre la realidad que esos datos
+pretenden describir.  
+Estos datos pueden ser mediciones o simulaciones de
+sistemas f\'isicos, qu\'imicos, geol\'ogicos, biol\'ogicos,
+financieros o industriales, entre otros.     
+El programa del curso tiene dos componentes diferenciadas: m\'etodos
+num\'ericos  y \emph{carpinter\'ia} de software.  
+La parte de m\'etodos num\'ericos busca ilustrar el paso entre la
+formulaci\'on matem\'atica de una pregunta sobre la realidad y su
+descripci\'on num\'erica/computacional.
+El objetivo principal es mostrar las diferentes formas de usar el
+software para escribir esa pregunta.
+La parte de carpinter\'ia busca presentar algunas t\'ecnicas y
+pr\'acticas necesarias, no suficientes, para poder obtener resultados
+computacionales reproducibles.    
+\\[0.1cm] 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Objetivos}\\[-0.2cm]
+
+%En este espacio se debe precisar el ente visor del curso y el
+%proposito ideal al finalizar el curso. 
+\noindent\normalsize El objetivo principal del curso es presentar
+algoritmos y t\'ecnicas b\'asicas para:
+
+\begin{itemize}
+\item resolver ecuaciones diferenciales ordinarias y parciales, \\[-0.6cm]
+\item analizar y describir datos con t\'ecnicas estad\'isticas basadas
+  en m\'etodos Monte Carlo, \\[-0.6cm]
+\item desarrollar esquemas reproducibles para el an\'alisis de datos cient\'ificos. \\[-0.6cm]
+\end{itemize} 
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Competencias a
+  desarrollar}\\[-0.2cm] 
+
+%En este espacio se describen las habilidades que el estudiante desarrollara en el transcurso del curso.
+
+\noindent\normalsize Al finalizar el curso, se espera que el
+estudiante est\'e en capacidad de: 
+
+\begin{itemize}
+\item implementar algoritmos sencillos para la resoluci\'on de
+  ecuaciones diferenciales y para el an\'alisis estad\'istico
+  exploratorio de datos, \\[-0.6cm]   
+\item manejar la sintaxis b\'asica de dos lenguajes de programaci\'on
+  modernos de computaci\'on num\'erica: uno de alto nivel y otro de
+  bajo nivel,\\[-0.6cm]  
+\item desarrollar un esquema sencillo para obtener resultados
+  computacionales reproducibles.\\[-0.6cm]  
+\end{itemize}
+
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Contenido por
+  semanas}\\[-0.2cm]  
+
+%Se expone de forma ordenada toda la tematica a tratar del curso. Debe planearse para 15 semanas.
+
+\noindent\textbf{\textsc{Semana 1}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: 
+Presentaci\'on del curso. Unix. Consola. Comandos b\'asicos. Editores
+de texto. Int\'erprete de
+Python. Variables. Aritm\'etica. Listas. Diccionarios.\\[-0.6cm] 
+\item Lecturas preparatorias. Videos \texttt{Introducci\'on a Unix:
+  primera parte}, \texttt{Introducci\'on a Unix: segunda parte},
+  \texttt{Introducci\'on a Python: primera parte}, \texttt{Python:
+    listas y strings}.\\[-0.6cm] 
+\item Talleres: 
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 2}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: If/while/break/continue. Ciclos. Funciones. Arreglos
+(numpy). Lectura y escritura de archivos (numpy). Gr\'aficas y
+visualizaci\'on (matplotlib), Objetos. \\[-0.6cm]
+\item Lecturas preparatorias. Videos \texttt{Intruducci\'on a Python:
+  segunda parte}, \texttt{Programaci\'on Orientada a Objetos en
+  Python}, \texttt{Python: Funciones, tipos de
+  variables y recursividad.}, \texttt{Numpy con IPython}, 
+  \texttt{import matplotlib as plt} (los dos \'ultimos videos usan
+  Ipython, no es necesario que uds. lo hagan asi.). \\[-0.6cm] 
+\item Talleres: \\[-0.6cm]
+\end{itemize}
+
+
+\noindent\textbf{\textsc{Semana 3}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Integrales. Interpolaci\'on. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 6 (Integration) del libro de
+Landau.\\[-0.6cm]
+\item Talleres: 
+Publicaci\'on Taller \#1 (Unix, Python)\\[-0.6cm] 
+\end{itemize}
+
+
+\noindent\textbf{\textsc{Semana 4}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Derivadas. Ra\'ices de ecuaciones. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulos 7.I (Numerical
+  Differentiation) y 7.II (Trial-and-Error Searching) del libro de
+  Landau.\\[-0.6cm] 
+\item Talleres: \\[-0.6cm] 
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 5}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Soluci\'on de sistemas de ecuaciones lineales.\\[-0.6cm] 
+\item Lecturas preparatorias:  Cap\'itulo 8 (Matrix Equation Solutions)
+  del libro de Landau. \\[-0.6cm]
+\item Talleres: 
+Entrega soluciones Taller \#1.
+Publicaci\'on Taller \#2
+(Integraci\'on. Interpolaci\'on. Derivadas. Ra\'ices de ecuaciones.) 
+\\[-0.6cm] 
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 6}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Autovalores y autovectores. Principal Component
+  Analysis. \\[-0.6cm]
+\item Lecturas preparatorias: Secciones 6.3.1 (Principal Component
+  Regression) y 10.2 (Principal Component Analysis) del libro ISL.\\[-0.6cm]
+\item Talleres: \\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 7}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Transformadas de Fourier\\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 10 (Fourier Analysis) del
+  libro de Landau.\\[-0.6cm] 
+\item Talleres: 
+Entrega soluciones Taller \#2. 
+Publicaci\'on Taller \#3
+(Autovalores y
+autovectores. Principal Component Analysis.)
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 8}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Git. Github. Makefile. Unit Tests. \\[-0.6cm]
+\item Videos de la serie \texttt{Version Control with Git} y
+  \texttt{Automation  and Make}  en Software Carpentry.\\[-0.6cm]    
+\item Talleres:\\[-0.6cm]. 
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 9}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: C++. Introducción, sintaxis, compilar/ejecutar,
+variables, ciclos. \\[-0.6cm]
+\item Lecturas preparatorias: C++ Tutorial\\[-0.6cm]
+\item Talleres: 
+Entrega soluciones Taller \#3. 
+Publicaci\'on Taller \#4 
+(Sistemas de ecuaciones lineales, Transformada de Fourier. Git. Makefiles.)
+\\[-0.6cm]. 
+\end{itemize}
+
+
+%%% SEMANA DE TRABAJO INDIVIDUAL EN 201810
+
+\noindent\textbf{\textsc{Semana 10}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: C++. If/while, Funciones, arreglos, Pointers, input/output \\[-0.6cm]
+\item Lecturas preparatorias: C++ Tutorial\\[-0.6cm]
+\item Talleres: 
+\\[-0.6cm]
+\end{itemize}
+
+
+\noindent\textbf{\textsc{Semana 11}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Ecuaciones diferenciales ordinarias. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 9 (ODEs) del libro de
+  Landau. \\[-0.6cm] 
+\item Talleres: 
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 12}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Ecuaciones diferenciales parciales. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 17 (PDEs) del libro de
+  Landau. \\[-0.6cm] 
+\item Talleres: 
+Entrega soluciones Taller \#4. 
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 13}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Ecuaciones diferenciales parciales. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 17 (PDEs) del libro de
+  Landau. \\[-0.6cm] 
+\item Talleres: 
+Publicaci\'on Taller \#5
+(Ecuaciones Diferenciales Ordinarias, Ecuaciones Diferenciales
+Parciales. Git. Makefiles.)
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 14}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: Conceptos b\'asicos de
+  probabilidad y estad\'istica. Procesos aleatorios. \\[-0.6cm]  
+\item Lecturas preparatorias: Cap\'itulo 1 (The Basics) del libro de
+  Sivia\&Skilling. \\[-0.6cm]
+\item Talleres: 
+\\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Semana 15}}\\[-0.5cm]
+\begin{itemize}
+\item Temas: M\'etodos de Monte Carlo. \\[-0.6cm]
+\item Lecturas preparatorias: Cap\'itulo 1 (Monte Carlo Methods) del
+  libro de Krauth.\\[-0.6cm]
+\item Talleres: \\[-0.6cm]
+\end{itemize}
+
+\noindent\textbf{\textsc{Primera semana de finales}}\\[-0.5cm]
+\begin{itemize}
+\item Talleres:
+Entrega soluciones Taller \#5. 
+\\[-0.6cm]
+\end{itemize}
+
+
+\vspace*{0.5cm} 
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Metodolog\'ia}\\[-0.2cm] 
+
+%Se describen las tecnicas y metodos para el desarrollo exitoso del curso.
+
+\noindent\normalsize 
+Las \emph{habilidades computacionales} se desarrollan trabajando activamente. 
+Por esto en las sesiones magistrales, luego de presentar un resumen de
+los conceptos te\'oricos, se har\'a \'enfasis en la pr\'actica y
+experimentaci\'on.   
+Para que esto funcione es necesario que los estudiantes estudien el
+tema correspondiente {\bf antes de cada clase} siguiendo las lecturas
+preparatorias recomendadas. En el \emph{Laboratorio de M\'etodos
+  Computationales} habr\'a m\'as tiempo para practicar lo visto en la
+clase magistral, hacer ejercicios y aclarar dudas.   
+
+La Magistral y el Laboratorio cuentan con repositorios  en GitHub:
+
+\url{https://github.com/ComputoCienciasUniandes/MetodosComputacionales}. 
+
+\url{https://github.com/ComputoCienciasUniandes/MetodosComputacionalesLaboratorio}. 
+
+
+\vspace*{0.5cm} 
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad Criterios de
+  evaluaci\'on}\\[-0.2cm] 
+
+Al comienzo del semestre se har\'a un examen (corto, sin nota) para
+diagnosticar el conocimiento general que ya tienen los estudiantes
+sobre los temas del curso. 
+
+La Magistral y el Laboratorio se califican por separado. Las
+componentes que reciben calificaci\'on en la Magistral son las
+siguientes:
+
+\begin{itemize}
+\item 
+Cinco talleres para resolver por fuera del horario de clase. 
+Cada taller tiene un valor del $14\%$ de la nota definitiva.  
+\item 
+Ejercicios para resolver y entregar en clase. 
+Se eligir\'an al azar 4 de estos ejercicios para ser calificados. 
+El promedio de esas 4 notas tiene un valor del $15\%$ de la nota
+definitiva. 
+Esta contribuci\'on a la nota definitiva ser\'a de cero (0.0) si se
+dejaron de entregar {\bf seis} o m\'as de estos ejercicios. 
+\item
+Un examen final (con una componente escrita y otra de
+programaci\'on) con un valor del $15\%$ de la nota definitiva.  
+\end{itemize}
+
+Las componentes que reciben calificaci\'on en el Laboratorio son las
+siguientes:
+\begin{itemize}
+\item
+Ejercicios cortos para resolver  y entregar en
+clase.  
+Se eligir\'an al azar 6 de esos ejercicios para ser calificados. 
+Cada ejercicio corresponde a un $15\%$ de la nota definitiva del
+Laboratorio. 
+Esta contribuci\'on a la nota definitiva ser\'a de cero (0.0) si se
+dejaron de entregar {\bf tres} o m\'as de estos ejercicios. 
+\item
+Asistencia a clase. Cada falta a clase recibe una nota de 0.0 y cada
+asistencia recibe una nota de 5.0. El promedio de estas notas
+corresponde al $10\%$ de la nota definitiva.
+\end{itemize}
+
+De acuerdo a la nota definiva en el Laboratorio habr\'a {\bf un bono} en la
+nota definitiva de la Magistral. 
+Siendo $x$ la nota de Laboratorio, el bono correspondiente
+se calcula as\'i:
+$4.0 < x \leq 4.4 \rightarrow 0.1$, $4.4< x\leq 4.8\rightarrow 0.2$, $4.8<x
+\leq 5.0\rightarrow 0.4$.
+
+Todos los ex\'amenes, talleres y ejercicios ser\'an
+\textbf{individuales}.  
+Si en las entregas se detecta que el trabajo no fue
+individual (esto incluye colaboraci\'on con personas no inscritas en
+el curso), entonces la nota de todos los talleres y ejercicios quedar\'a
+autom\'aticamente {\bf en cero} y se llevar\'a el caso a comit\'e
+disciplinario. 
+
+Los enunciados de los talleres se publican a m\'as tardar el lunes a
+las $11$PM de la semana de publicaci\'on correspondiente. 
+Las soluciones de los talleres se reciben a m\'as tardar el lunes a
+las $11$PM de la semana de entrega correspondiente.
+
+Todas las entregas de talleres y ejercicios se har\'an a trav\'es de
+SICUA.  {\bf No se aceptar\'a ninguna tarea por fuera de esa
+  plataforma}, a menos que ocurra un una falla en los servidores de
+SICUA que afecte a {\bf todos} los estudiantes del curso.
+
+
+\vspace*{0.5cm} 
+
+\stepcounter{mysection}
+\noindent\textbf{\large \Roman{mysection} \quad
+  Bibliograf\'ia}\\[-0.2cm] 
+
+%Indicar los libros y la documentacion guia.
+
+
+\noindent\normalsize Bibliograf\'ia principal:
+
+\begin{itemize}
+\item
+\textit{A survey of Computational Physics - Enlarged Python Book}
+. R. H. Landau, M. J. P\'aez, C. C. Bordeianu. WILEY. 2012.
+\url{https://psrc.aapt.org/items/detail.cfm?ID=11578}
+
+\item
+\textit{Data Analysis: A Bayesian Tutorial.} D. S. Sivia,
+J. Skilling. Second Edition, Oxford Science Publications. 2006.
+
+\item 
+\textit{Statistical Mechanics: Algorithms and Computations.}
+W. Krauth, Oxford Univ. Press. 
+
+\item
+\textit{An Introduction to Statistical Learning.} G. James, D. Witten,
+T. Hastie, R. Tibshirani,
+Springer. \url{http://www-bcf.usc.edu/~gareth/ISL/} 
+
+\item
+\textit{C++ programming for the absolute beginner.}
+ M. Lee \& D. Henkemans, Second Edition, Cengage Learning, 2009.
+
+\item
+\textit{The C programming language.}
+ B. Kernighan \& D. Ritchie, Second Edition, Prentice Hall.
+
+\item Videos del curso Herramientas Computacionales que muestran los
+  fundamentos de Unix y Python \url{https://www.youtube.com/playlist?list=PLHQtzvthdVM_MGC9dPFKe4hPAwBd_7RJ3}
+
+\item Software Carpentry: \url{http://software-carpentry.org/}
+\item C++ Tutorial: \url{https://www.tutorialspoint.com/cplusplus/}
+\end{itemize}
+
+\noindent\normalsize Bibliograf\'ia secundaria:
+\begin{itemize}
+\item
+\textit{Elements of Scientific Computing}
+Tveito A., Langtangen H.P., Nielsen B.F., Cai X. Spinger. 2010.
+
+
+\item 
+\textit{Introduction to Computation and Programming Using Python},
+Guttag, J. V. The MIT Press. 2013.
+
+\item\url{http://xkcd.com/}
+\end{itemize}
+
+
+\end{document}
