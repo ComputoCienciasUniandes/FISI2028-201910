@@ -83,7 +83,7 @@ for k in range(len(E)):
 print('Promedio de los terminos [(delta_x_i * delta_x_j) + (delta_y_i * delta_y_j)]/R2: {:.3f}'.format(np.mean(D)))
 
 # Ensembles para diferentes valores de N
-N_list = [10, 100, 500, 1000, 5000, 10000, 20000, 50000]
+N_list = [10, 100, 500, 1000, 5000, 10000, 20000, 100000]
 R2 = np.zeros(len(N_list))
 for i in range(len(N_list)):
     E = ensemble(n_steps=N_list[i], dim=2)
@@ -167,7 +167,7 @@ for k in range(len(E)):
 print('Promedio de los terminos [(delta_x_i * delta_x_j) + (delta_y_i * delta_y_j)]/R2: {:.3f}'.format(np.mean(D)))
 
 # Ensembles para diferentes valores de N
-N_list = [10, 100, 500, 1000, 5000, 10000, 20000, 50000]
+N_list = [10, 100, 500, 1000, 5000, 10000, 20000, 100000]
 R2 = np.zeros(len(N_list))
 for i in range(len(N_list)):
     E = ensemble(n_steps=N_list[i], dim=3)
