@@ -79,7 +79,6 @@ for k in range(len(E)):
     D[k] = (np.sum(one_walk['delta_x']))**2 + (np.sum(one_walk['delta_y']))**2 + (np.sum(one_walk['delta_z']))**2
     D[k] = D[k]-np.sum(one_walk['delta_x']**2 + one_walk['delta_y']**2 + one_walk['delta_z']**2)
     D[k] = D[k]/one_walk['R2']
-    R2[k] = one_walk['R2']
 print('Promedio de los terminos [(delta_x_i * delta_x_j) + (delta_y_i * delta_y_j)]/R2: {:.3f}'.format(np.mean(D)))
 
 # Ensembles para diferentes valores de N
@@ -163,7 +162,6 @@ for k in range(len(E)):
     D[k] = (np.sum(one_walk['delta_x']))**2 + (np.sum(one_walk['delta_y']))**2 + (np.sum(one_walk['delta_z']))**2
     D[k] = D[k]-np.sum(one_walk['delta_x']**2 + one_walk['delta_y']**2 + one_walk['delta_z']**2)
     D[k] = D[k]/one_walk['R2']
-    R2[k] = one_walk['R2']
 print('Promedio de los terminos [(delta_x_i * delta_x_j) + (delta_y_i * delta_y_j)]/R2: {:.3f}'.format(np.mean(D)))
 
 # Ensembles para diferentes valores de N
