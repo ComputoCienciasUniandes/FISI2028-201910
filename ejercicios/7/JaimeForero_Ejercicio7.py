@@ -1,3 +1,6 @@
+# Corresponde a la implementacion en python de algunos algoritmos 
+# en el primer capitulo de Algorithms and Computations de Werner Krauth.
+
 import numpy as np
 
 def direct_pi(N):
