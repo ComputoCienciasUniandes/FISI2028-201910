@@ -101,3 +101,18 @@ def gamma(z, n_points=20):
     return np.sum(fun(z,x)*w)
 print("Segunda Parte")
 print("Gamma(2): {}\nGamma(3): {}\nGamma(4): {}\t".format(gamma(2), gamma(3), gamma(4)))
+
+
+def gamma2(z, n_points=20):
+    # Usando el cambio de variable u = exp(-x)
+    def fun(z,u):
+        return (-np.log(u))**(z-1)     
+    a = 0.0
+    b = 1.0
+    y, wprime = np.polynomial.legendre.leggauss(n_points)
+    x = 0.5*(b+a) + 0.5*(b-a)*y
+    w = 0.5*(b-a)*wprime
+    return np.sum(fun(z,x)*w)
+print("Segunda Parte")
+print("Gamma(2): {}\nGamma(3): {}\nGamma(4): {}\t".format(gamma2(2), gamma2(3), gamma2(4)))
+
