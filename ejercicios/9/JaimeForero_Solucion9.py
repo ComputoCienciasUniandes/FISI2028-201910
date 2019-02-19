@@ -106,7 +106,7 @@ print("Gamma(2): {}\nGamma(3): {}\nGamma(4): {}\t".format(gamma(2), gamma(3), ga
 def gamma2(z, n_points=20):
     # Usando el cambio de variable u = exp(-x)
     def fun(z,u):
-        return (-np.log(u))**(z-1)     
+        return (-np.log(u))**(z-1)    # diverge para u=0
     a = 0.0
     b = 1.0
     y, wprime = np.polynomial.legendre.leggauss(n_points)
