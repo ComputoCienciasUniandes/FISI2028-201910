@@ -9,6 +9,13 @@ def integral(dim=10, n_points=100):
     x_sum = np.average(x_sum**2)
     return x_sum
 
+def integral(dim=10, n_points=100):
+    suma = 0.0
+    for i in range(n_points):
+        x =  np.random.random(dim)
+        suma += np.sum(x*x)
+    return suma/n_points
+
 def mean_integral(n_trial=16, dim=10, n_points=100):
     x = 0
     for i in range(n_trial):
@@ -23,7 +30,7 @@ for n in N:
     error.append(np.abs(155/6-mean_integral(n_points=n))/(155/6))
 
 plt.figure()
-plt.plot(1/np.sqrt(N), error, 'o')
+plt.plot(1/np.sqrt(N), error)
 plt.loglog()
 plt.title("$\int_0^{1} dx_1 \ldots \int_0^1 dx_{10} (x_1+\cdots x_{10})^2 $")
 plt.ylabel("|error|")
