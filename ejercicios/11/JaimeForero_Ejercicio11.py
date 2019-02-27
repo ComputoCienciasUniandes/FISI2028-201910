@@ -14,13 +14,11 @@ def ED(f, x, h):
 
 
 def get_error(f, deriva_f_analitica, deriva_f_numerica, x):
-    h_range = np.logspace(-15,-1, 100)
+    h_range = np.logspace(-15,-1, 200)
     n_points = len(h_range)
     error_range = np.ones(n_points)
-    for i in range(n_points):
-        h = h_range[i]
-        analitica = deriva_f_analitica(x)
-        error_range[i] = np.abs((deriva_f_numerica(f, x, h) - analitica)/analitica)
+    analitica = deriva_f_analitica(x)
+    error_range = np.abs((deriva_f_numerica(f, x, h_range) - analitica)/analitica)
     return h_range, error_range
 
 
