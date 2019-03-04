@@ -1,0 +1,157 @@
+
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+% Formato para los talleres del curso de Métodos Computacionales
+% Universidad de los Andes
+%--------------------------------------------------------------------
+%--------------------------------------------------------------------
+
+\documentclass[11pt,letterpaper]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[absolute]{textpos} % Para poner una imagen en posiciones arbitrarias
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{hyperref}
+\decimalpoint
+
+\begin{document}
+\begin{center}
+{\Large Métodos Computacionales} \\
+Taller 1 --- 2019-10\\
+
+\end{center}
+
+%\begin{textblock*}{40mm}(10mm,20mm)
+%  \includegraphics[width=3cm]{logoUniandes.png}
+%\end{textblock*}
+
+%\begin{textblock*}{40mm}(164mm,20mm)
+%  \includegraphics[width=3cm]{logoUniandes.png}
+%\end{textblock*}
+
+\vspace{0.3cm}
+
+\noindent
+La solución a este taller debe subirse por SICUA antes de las 11:00PM
+del lunes 11 de Marzo.
+La soluci\'on debe estar dentro de un archivo
+\verb"NombreApellido_taller1.py".
+Por ejemplo, si su nombre es Miranda
+July deber\'ia subir el archivo \verb"MirandaJuly_taller1.py" y
+adentro  debe encontrarse el c\'odigo de Python con las soluciones. 
+Las funciones propuestas {\bf {deben}} tener el nombre y los
+par\'ametros pedidos para poder ser calificadas. 
+Las funciones ser\'an calificadas a partir de entradas definidas por
+el evaluador. 100 puntos corresponden a una nota de $5.0$.
+{\bf No se permite reutilizaci\'on de c\'odigos escritos por terceros (esto
+incluye repositorios asociados al curso).}
+
+\vspace{0.3cm}
+\begin{questions}
+
+
+
+
+\question{{\bf Equilibrio} (20 puntos)}
+
+El objetivo es encontrar el \'angulo $\theta$ en la Figura
+\ref{fig:uno} cuando el sistema se encuentra en equilibrio.  
+
+La funci\'on de Python que resuelve el problema debe definirse como:
+
+\verb"def equilibrio(m, q, l, g):"
+
+donde:
+\begin{itemize}
+\item\verb"m" es la masa en gramos de las masas.
+\item\verb"q" es la carga en nanocoulomb de las masas.
+\item\verb"l" es la longitud en metros de las cuerdas.
+\item\verb"g" es la aceleraci\'on de la gravedad en m/s$^2$.
+\end{itemize}
+
+La funci\'on debe terminar con un \verb"return theta", donde
+\verb"theta" es el \'angulo de equilibrio en radianes.
+La funci\'on debe utilizar el m\'etodo de Newton-Rhapson para
+encontrar el \'angulo \verb"theta".
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{bolas.jpeg}
+\end{center}
+\caption{Esquema para el Ejercicio 1.}
+\label{fig:uno}
+\end{figure}
+
+
+\question {{\bf Ajuste Polinomial M\'inimos Cuadrados Matricial} (30 puntos)} 
+
+
+El objetivo de este ejercicio es hacer el ajuste de un conjunto de $n$
+puntos $x_i$, $y_i\pm \sigma_i$ a un modelo polinomial de grado $N$:
+
+\begin{equation}
+y = \sum_{j=0}^{N}a_j x^{j}.
+\label{eq:modelo}
+\end{equation}
+
+La funci\'on de Python que resuelve el problema debe definirse como 
+
+
+\verb"def matrix_polynomial(filename, poly_degree=2):".  
+
+donde:
+
+\begin{itemize}
+\item \verb"filename" corresponde al nombre del archivo de texto con
+  tres columnas con los valores de $x_i$, $y_i$, $\sigma_i$.
+\item \verb"poly_degree" es el grado del polinomio ($N$ en
+  la Ecuaci\'on \ref{eq:modelo}).
+\end{itemize}
+
+La funci\'on debe terminar con un \verb"return a", donde \verb"a" es un
+array de numpy con los valores de los coeficientes del polinomio de
+manera que \verb"a[j]" corresponda a $a_j$. El array \verb"a" debe
+tener entonces una longitud igual a \verb"N+1".  
+
+El ajuste debe hacerse con una formulaci\'on matricial de m\'inimos
+cuadrados y resoluci\'on de sistema de ecuaciones por el m\'etodo de
+eliminaci\'on Gaussiana.
+No se permite utilizar funciones de \'algebra lineal de librerias.
+
+
+\question {{\bf Ajuste Polinomial Markov Chain Monte Carlo} (50 puntos)} 
+
+El objetivo es el mismo que en el numeral anterior pero con un
+m\'etodo Metr\'opolis-Hastings.
+
+La funci\'on de Python que resuelve el problema debe definirse como 
+
+\verb"def MCMC_polynomial(filename, poly_degree=2, n_steps=50000):".  
+
+
+donde:
+
+\begin{itemize}
+\item \verb"filename" corresponde al nombre de archivo de texto con
+  tres columnas con los valores de $x_i$, $y_i$, $\sigma_i$.
+\item \verb"poly_degree" es el grado del polinomio ($N$ en
+  la Ecuaci\'on \ref{eq:modelo}).
+\item \verb"n_steps" es el n\'umero de pasos de las cadenas de Markov.
+\end{itemize}
+
+La funci\'on debe terminar con un \verb"return a" con las mismas
+condiciones descritas para \verb"a" en el caso la funci\'on
+\verb"matrix_polynomial". 
+
+\end{questions}
+
+
+
+
+
+
+\end{document}
