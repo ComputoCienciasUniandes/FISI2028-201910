@@ -49,7 +49,7 @@ y = data[:,1]
 # Resuelve el sistema lineal, guarda los coeficients en un diccionario
 # para los ajustes de polinomios de orden 0, 1, 2.
 c = {}
-for n in [0,1,2]:
+for n in [0,1,2,3]:
     A = crea_matriz_modelo_polinomial(x, poly_deg=n)
     A_inv = np.linalg.pinv(A) # esta ves uso la pseudo inversa
     c[n] = A_inv@y
@@ -59,7 +59,7 @@ x_model = np.linspace(x.min(), x.max(), 100)
 
 # grafica
 plt.figure()
-for n in [0, 1, 2]:
+for n in c.keys():
     y_model = poly_model(x_model, c[n])
     plt.plot(x_model, y_model, label='fit orden {}'.format(n))
 
