@@ -13,7 +13,7 @@ def equilibrio(m, q, l, g):
     A = k*q*q/(4.0*l*l*m*g)
     
     theta = 1E-15
-    while np.abs(func(theta, A)) > 1E-10:
+    while np.abs(func(theta, A)) > 1E-15:
         delta_theta = -func(theta, A)/func_prime(theta, A)
         theta += delta_theta
     return theta
@@ -73,7 +73,7 @@ def matrix_polynomial(filename, poly_degree=2):
 
     return a
 
-def MCMC_polynomial(filename, poly_degree=2, N=50000):
+def MCMC_polynomial(filename, poly_degree=2, n_steps=50000):
     def loglikelihood(x_obs, y_obs, sigma_y_obs, param):
         d = y_obs -  model(x_obs, param)
         d = d/sigma_y_obs
@@ -82,7 +82,8 @@ def MCMC_polynomial(filename, poly_degree=2, N=50000):
 
     def logprior(param):
         return 0.0
-    
+
+    N = n_steps
     datos = np.loadtxt(filename)
 
     x_obs = datos[:,0]

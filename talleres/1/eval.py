@@ -16,7 +16,7 @@ try:
     theta = sol.equilibrio(1E-2, 1.0, 1.0, 9.8)
     puntos +=5
     try:
-        np.testing.assert_allclose(theta, ans_theta, rtol=1E-4)
+        np.testing.assert_allclose(theta, ans_theta, rtol=1E-1)
         puntos +=10
     except:
         puntos +=0 
@@ -32,13 +32,13 @@ try:
     b = sol.matrix_polynomial("numeros.txt", poly_degree=5)
     puntos += 10
     try:
-        ll = np.testing.assert_allclose(a, ans_a, rtol=1E-4)
+        ll = np.testing.assert_allclose(a, ans_a, rtol=1E-1)
         puntos += 5
     except:
         puntos += 0
 
     try:
-        np.testing.assert_allclose(b, ans_b, rtol=1E-4)
+        np.testing.assert_allclose(b, ans_b, rtol=1E-1)
         puntos += 5
     except:
         puntos += 0
@@ -49,18 +49,18 @@ total += puntos
 
 puntos=15
 try:
-    a = sol.MCMC_polynomial("numeros.txt", poly_degree=3, N=60000)
-    b = sol.MCMC_polynomial("numeros.txt", poly_degree=5, N=60000)
+    a = sol.MCMC_polynomial("numeros.txt", poly_degree=3, n_steps=10000)
+    b = sol.MCMC_polynomial("numeros.txt", poly_degree=5, n_steps=10000)
     puntos += 15
     try:
 
-        np.testing.assert_allclose(a, ans_a, rtol=1) 
+        np.testing.assert_allclose(a, ans_a, rtol=2) 
         puntos += 10
     except:
         puntos += 0
 
     try:
-        np.testing.assert_allclose(b, ans_b, rtol=1) 
+        np.testing.assert_allclose(b, ans_b, rtol=2) 
         puntos += 10
     except:
         puntos += 0
