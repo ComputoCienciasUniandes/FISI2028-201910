@@ -93,7 +93,7 @@ def MCMC_polynomial(filename, poly_degree=2, n_steps=50000):
     a = matrix_polynomial(filename, poly_degree=poly_degree) # empiezo en la solucion de minimos cuadrados
     l_param = [a]
 
-    sigma_param = np.ones(poly_degree+1) * np.abs(a) / np.sqrt(N) # dejo un sigma que me permite en principio explorar hasta el origen.
+    sigma_param = np.abs(a) / np.sqrt(N) # dejo un sigma que me permite en principio explorar hasta el origen.
     n_param = len(sigma_param)
     for i in range(1,N):
         propuesta  = l_param[i-1] + np.random.normal(size=n_param) * sigma_param
