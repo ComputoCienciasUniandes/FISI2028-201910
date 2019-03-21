@@ -53,7 +53,7 @@ fft_signal_filter = fft_signal.copy()
 fft_signal_filter[np.abs(f)>0.2] = 0.0
 
 
-# calculada de la tranformada inversa
+# calculo de la tranformada inversa
 signal_filter = IFT(fft_signal_filter)
 
 plt.figure(figsize=(8,14))
