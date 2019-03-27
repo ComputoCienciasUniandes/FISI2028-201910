@@ -1,3 +1,6 @@
+# Referencias http://katyhuff.github.io/python-testing/
+# https://docs.python.org/2/library/unittest.html
+
 import unittest
 import complejo
 import math
@@ -24,6 +27,7 @@ class TestComplejo(unittest.TestCase):
         d = c.pow(4)
         self.assertAlmostEqual(d.real,1.0)
         self.assertAlmostEqual(d.imaginario,0.0)
+
 
 if __name__ == '__main__':
     unittest.main()
