@@ -33,10 +33,10 @@ class TestComplejo(unittest.TestCase):
         self.assertAlmostEqual(d.real,-1.0)
         self.assertAlmostEqual(d.imaginario,0.0)
 
-        c = complejo.Complejo(0, 1.0)
-        d = c.pow(4)
-        self.assertAlmostEqual(d.real,1.0)
-        self.assertAlmostEqual(d.imaginario,0.0)
+        c = complejo.Complejo(1.0, 1.0)
+        d = c.pow(6)
+        self.assertAlmostEqual(d.real,0.0)
+        self.assertAlmostEqual(d.imaginario,-math.sqrt(2.0))
 
 
 if __name__ == '__main__':
