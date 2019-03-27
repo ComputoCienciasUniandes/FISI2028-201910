@@ -28,3 +28,4 @@ class TestComplejo(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     
+# este archivo se debe utilizar como 'python -m unittest -v pruebas'
