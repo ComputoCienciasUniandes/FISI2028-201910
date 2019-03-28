@@ -2,7 +2,7 @@
 
 
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ComputoCienciasUniandes/FISI2028-201910/master?urlpath=lab)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/ComputoCienciasUniandes/FISI2028-201910/master)
 
 Material del curso Métodos Computacionales de Uniandes
 
