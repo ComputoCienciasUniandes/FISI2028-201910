@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-os.system("g++ walk.cpp -o walk.x")
-os.system("./walk.x > walk.dat")
+a = os.system("g++ walk.cpp -o walk.x")
+a = os.system("./walk.x > walk.dat")
 
 plt.figure()
 data = np.loadtxt("walk.dat")
