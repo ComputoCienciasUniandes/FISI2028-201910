@@ -14,8 +14,5 @@ int main () {
   for ( i = 0; i < 4; i++ ) {
     cout << *(puntero + i) << endl;
   }
-  
-
- 
    return 0;
 }
