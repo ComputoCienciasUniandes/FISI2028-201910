@@ -42,8 +42,8 @@ int main(){
 
 ```
 
-Para calificar utilizaremos el archivo `fit_mcmc.py` para verificar que su 
-código funciona reemplaze la variable `filename` con el nombre de su archivo `cpp`.
+Para calificar utilizaremos el archivo `fit_mcmc.py`.
+Para verificar que su código funciona reemplaze la variable `filename` con el nombre de su archivo `cpp`.
 Si todo sale bien debería tener una gráfica como la que se muestra aquí:
 
-```
+![fit mcmc](fit_mcmc.png)
