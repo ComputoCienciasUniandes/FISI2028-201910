@@ -11,7 +11,7 @@ dataname = filename.split(".")[0]+".dat"
 plotname = filename.split(".")[0]+".png"
 
 # compila
-a = os.system("g++ {} -o {}".format(filename, execname)
+a = os.system("g++ {} -o {}".format(filename, execname))
 
 # ejecuta
 a = os.system("./{} > {}".format(execname, dataname))
@@ -42,4 +42,4 @@ plt.plot(x_model, y_model, label='mcmc fit')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.legend()
-plt.savefig(plotname)
+plt.savefig(plotname, bbox_inches='tight')
