@@ -2,6 +2,8 @@
 #include <fstream>
 #include <cmath>
 
+/*Solucion de la ecuacion de poisson por el metodo de relajacion*/
+/*Problema de dos placas encerradas en una caja conductora a potencial cero*/
 using namespace std;
 
 int main(){
@@ -13,7 +15,8 @@ int main(){
   int iteracion=0;
   ofstream outfile;
   double error=10;
-  /*inicializa old_ud*/
+
+  /*inicializa old_u*/
   for(i=0;i<n_side;i++){
     for(j=0;j<n_side;j++){
       u_old[i][j]=0.0;
