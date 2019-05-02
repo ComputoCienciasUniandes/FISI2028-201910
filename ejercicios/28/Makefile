@@ -6,3 +6,6 @@ plot.png: temperatura.dat plot.py
 
 a.out: JaimeForero_Ejercicio28.cpp
 	g++ JaimeForero_Ejercicio28.cpp
+
+clean:
+	rm -rf a.out temperatura.dat plot.png *~
