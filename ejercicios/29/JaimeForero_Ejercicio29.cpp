@@ -2,8 +2,7 @@
 #include <fstream>
 #include <cmath>
 
-/*Solucion de la ecuacion de poisson por el metodo de relajacion*/
-/*Problema de dos placas encerradas en una caja conductora a potencial cero*/
+/*Solucion de la ecuacion de onda por diferencias finitas*/
 using namespace std;
 
 int main(){
